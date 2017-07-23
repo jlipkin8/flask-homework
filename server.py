@@ -39,22 +39,30 @@ MOST_LOVED_MELONS = {
 def show_homepage(): 
     """Displays homepage and asks for user's name""" 
 
-    return render_template("homepage.html")
-
+    if 'user_name' not in session: 
+        print "user_name is not stored"
+        return render_template("homepage.html")
+    else: 
+        return redirect("/top-melons")
 
 @app.route("/top-melons")
 def show_top_melons(): 
     """Displays page of top melons""" 
 
-    return render_template("top-melons.html", melons=MOST_LOVED_MELONS)
-
+    if 'user_name' not in session: 
+        print "redirect to homepage"
+        return redirect("/")
+    else: 
+        return render_template("top-melons.html", melons=MOST_LOVED_MELONS)
+        
 
 @app.route("/get-name")
 def get_user_name(): 
     """Adds user's name to the session"""
-
     user = request.args.get("firstname")
-    session['user_name'] = user
+    if user: 
+        session['user_name'] = user
+        
     return redirect("/top-melons")
 
 
