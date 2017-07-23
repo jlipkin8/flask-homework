@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Top Melons</title>
-    <link rel="stylesheet" type="text/css" href="/static/styles.css">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block body %}
+
     <h1>Welcome, {{ session['user_name'] }}</h1>
 <!-- Create a div for every Most Loved Melon using a Jinja for loop -->
     {% if melons %}
@@ -17,5 +14,4 @@
     {% endfor %}
     {% endif %}
 
-</body>
-</html>
+{% endblock %}
