@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, render_template, session
+from flask import Flask, redirect, request, render_template, session 
 from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 
@@ -41,13 +41,21 @@ def show_homepage():
 
     return render_template("homepage.html")
 
-    
+
 @app.route("/top-melons")
 def show_top_melons(): 
     """Displays page of top melons""" 
 
     return render_template("top-melons.html", melons=MOST_LOVED_MELONS)
 
+
+@app.route("/get-name")
+def get_user_name(): 
+    """Adds user's name to the session"""
+
+    user = request.args.get("firstname")
+    session['user_name'] = user
+    return redirect("/top-melons")
 
 
 if __name__ == "__main__":
