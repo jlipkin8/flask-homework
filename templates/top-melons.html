@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Melons</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+
+<!-- Create a div for every Most Loved Melon using a Jinja for loop -->
+    {% if melons %}
+    {% for melon in melons %}
+    <div class='melon-div'>
+        <h3>{{ melons[melon]['name'] }}</h3>
+        <h2>Loved {{ melons[melon]['num_loves'] }} times.</h2>
+        <img src={{ melons[melon]['img'] }}> -->
+    </div>
+    {% endfor %}
+    {% endif %}
+
+</body>
+</html>
