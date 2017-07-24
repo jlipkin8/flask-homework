@@ -14,4 +14,14 @@
     {% endfor %}
     {% endif %}
 
+    <form action="/love-melon" method="POST">
+        Which melon do you love the most? 
+        <select name="melonvote">
+            <option value="cren">Crenshaw</option>
+            <option value="jubi">Jubliee Watermelon</option>
+            <option value="sugb">Sugar Baby Watermelon</option>
+            <option value="texb">Texas Golden Watermelon</option>
+        </select>
+        <input type="submit">
+    </form>
 {% endblock %}

@@ -1,3 +1,21 @@
+body {
+    margin: 0; 
+    background: linear-gradient(red, yellow);
+}
+
+h1{
+    font-size: 4em; 
+    color: blue;
+    font-family: Gill Sans Extrabold, fantasy;
+}
+
+h2 {
+    color: #ADFF2F;
+    font-family: fantasy, "system-ui"; 
+    background: linear-gradient(to right, #66ffcc, #0000ff);
+    width: 300px;
+} 
+
 img {
     height: 200px;
     width: 200px;
@@ -7,4 +25,8 @@ img {
     display: inline-block;
     padding: 10px;
     width: 205px;
+}
+
+form {
+    background: linear-gradient(to left top, #ccff99, #ff00ff);
 }

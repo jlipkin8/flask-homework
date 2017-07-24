@@ -45,6 +45,7 @@ def show_homepage():
     else: 
         return redirect("/top-melons")
 
+
 @app.route("/top-melons")
 def show_top_melons(): 
     """Displays page of top melons""" 
@@ -59,11 +60,23 @@ def show_top_melons():
 @app.route("/get-name")
 def get_user_name(): 
     """Adds user's name to the session"""
+
     user = request.args.get("firstname")
     if user: 
         session['user_name'] = user
         
     return redirect("/top-melons")
+
+
+@app.route("/love-melon", methods=["POST"])
+def increase_num_loves(): 
+    """Increases the num_loves of a melon""" 
+
+    chosen_melon = request.form.get("melonvote")
+    MOST_LOVED_MELONS[chosen_melon]['num_loves'] += 1
+
+    return render_template("thank-you.html")
+
 
 
 if __name__ == "__main__":
